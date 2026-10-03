@@ -267,7 +267,7 @@ const season6Featured=[
 ];
 for(let i=season6Featured.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[season6Featured[i],season6Featured[j]]=[season6Featured[j],season6Featured[i]]}
 const featuredGallery=document.getElementById("featuredGallery");
-season6Featured.slice(0,3).forEach(p=>{const card=document.createElement("article");card.className="card";card.dataset.title=p.title;card.dataset.category="season6";card.dataset.credit=p.credit;card.innerHTML='<img class="gallery-img" src="'+p.src+'" alt="'+p.title.replace(/"/g,"&quot;")+'"><div class="card-label">'+p.title+'</div>';featuredGallery.appendChild(card)});
+season6Featured.slice(0,4).forEach(p=>{const card=document.createElement("article");card.className="card";card.dataset.title=p.title;card.dataset.category="season6";card.dataset.credit=p.credit;card.innerHTML='<img class="gallery-img" src="'+p.src+'" alt="'+p.title.replace(/"/g,"&quot;")+'"><div class="card-label">'+p.title+'</div>';featuredGallery.appendChild(card)});
 
 // Lightweight JMC motion effects
 const reducedMotion=window.matchMedia("(prefers-reduced-motion: reduce)").matches;

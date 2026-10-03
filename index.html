@@ -3,7 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>JustMineCraft — Minecraft SMP</title>
+<title>JustMineCraft — 18+ Semi-Vanilla Minecraft SMP</title>
+<meta name="description" content="JustMineCraft is an 18+ whitelisted semi-vanilla Fabric SMP with community builds, player economy, events, factions, and a long-running world.">
+<meta property="og:title" content="JustMineCraft SMP">
+<meta property="og:description" content="Build, explore, trade, and make your mark on JMC — an 18+ whitelisted semi-vanilla Minecraft community.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://justminecraft.org/">
+<meta property="og:image" content="https://justminecraft.org/assets/server-iconSMP.png">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#07100d">
 <link rel="icon" type="image/png" sizes="64x64" href="/assets/server-iconSMP.png?v=2">
 <link rel="shortcut icon" type="image/png" href="/assets/server-iconSMP.png?v=2">
 <style>
@@ -148,14 +156,14 @@ a { color: inherit; text-decoration: none; }
 .nav-links a::after { content:""; position:absolute; left:0; right:100%; bottom:-10px; height:2px; background:var(--green); border-radius:3px; transition:right .2s ease; }
 .nav-links a.active::after { right:0; }
 @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; animation:none!important; transition:none!important; } .reveal{opacity:1;transform:none} }
-</style>
+.status-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.018)}.status-inner{min-height:92px;display:flex;align-items:center;gap:22px;justify-content:space-between;flex-wrap:wrap}.live-status{display:flex;align-items:center;gap:11px}.live-status small,.stat-pill span{display:block;color:var(--muted);font-size:11px;margin-top:3px}.status-dot{width:10px;height:10px;border-radius:50%;background:#78817b;box-shadow:0 0 0 5px rgba(255,255,255,.04)}.status-dot.online{background:var(--green);box-shadow:0 0 16px rgba(139,234,53,.7)}.status-dot.offline{background:#ff665f}.stat-pill strong{font-size:13px}.featured-gallery{max-height:none;overflow:visible;padding-right:0;scrollbar-gutter:auto}.featured-gallery .card{grid-column:span 1!important;aspect-ratio:16/10!important}.featured-gallery .card:nth-child(1),.featured-gallery .card:nth-child(6){grid-column:span 2!important;aspect-ratio:2.15/1!important}@media(max-width:820px){.status-inner{padding:18px 0;justify-content:flex-start}.stat-pill{min-width:110px}.featured-gallery .card,.featured-gallery .card:nth-child(1),.featured-gallery .card:nth-child(6){grid-column:span 1!important;aspect-ratio:16/10!important}} </style>
 </head>
 <body>
 <div class="root">
 <header class="nav">
   <div class="container nav-inner">
     <a class="brand" href="#top"><span class="brand-mark"><img src="assets/logo.png" alt="JMC"></span><span>JustMineCraft</span></a>
-    <nav class="nav-links"><a href="#about">About</a><a href="#world">Gallery</a><a href="#info">Server Info</a><a href="#rules">Rules</a><a href="#join">Join</a></nav>
+    <nav class="nav-links"><a href="#about">About</a><a href="/gallery/">Gallery</a><a href="#info">Server Info</a><a href="/rules/">Rules</a><a href="/history/">History</a><a href="#join">Join</a></nav>
     <a class="nav-cta" href="https://discord.gg/SxK7QYqeD7" target="_blank" rel="noopener">Join JMC</a>
   </div>
 </header>
@@ -163,12 +171,22 @@ a { color: inherit; text-decoration: none; }
 <section class="hero">
   <div class="hero-grid"></div><div class="particle-field" id="particleField"></div><div class="hero-art"><div class="cube c1"></div><div class="cube c2"></div><div class="cube c3"></div></div>
   <div class="container hero-content">
+    <img src="/assets/logo.png" alt="JustMineCraft" style="width:min(360px,72vw);height:auto;margin:0 auto 18px;filter:drop-shadow(0 10px 30px rgba(0,0,0,.45))">
     <div class="eyebrow">JustMineCraft · 18+ Minecraft SMP</div>
     <h1>Build Your <span>Own Story</span></h1>
     <p>JustMineCraft is a community-driven Minecraft SMP built around factions, towns, businesses, massive builds, player-run events, and the freedom to make the world your own.</p>
     <div class="actions"><a class="btn btn-primary" href="https://discord.gg/SxK7QYqeD7" target="_blank" rel="noopener">Join The Discord</a><a class="btn btn-secondary" href="#world">Explore JMC</a></div>
   </div>
 </section>
+<section class="status-strip"><div class="container status-inner">
+  <div class="live-status"><span class="status-dot" id="statusDot"></span><div><strong id="statusText">Checking server…</strong><small id="playerText">play.justminecraft.org</small></div></div>
+  <div class="stat-pill"><strong>Fabric 26.2</strong><span>Version</span></div>
+  <div class="stat-pill"><strong>Whitelisted</strong><span>Access</span></div>
+  <div class="stat-pill"><strong>18+</strong><span>Community</span></div>
+  <div class="stat-pill"><strong>Semi-Vanilla</strong><span>Experience</span></div>
+  <div class="stat-pill"><strong>New York</strong><span>Hosted</span></div>
+  <button class="mini-copy" data-copy="play.justminecraft.org">Copy IP</button>
+</div></section>
 <section class="section" id="about"><div class="container">
   <div class="about-head"><div><div class="kicker">What Is JMC?</div><h2>Just Play Minecraft</h2></div><p class="section-lead">JMC is about giving players a world where they can build, explore, trade, form factions, start businesses, create stories, and actually leave their mark.</p></div>
   <div class="features">
@@ -181,24 +199,14 @@ a { color: inherit; text-decoration: none; }
   </div>
 </div></section>
 <section class="section" id="world"><div class="container">
-  <div class="gallery-head"><div><div class="kicker">Explore JustMineCraft</div><h2>The World of JMC</h2></div><p class="section-lead">A growing scrapbook of builds, landmarks, meetings, and moments from across JMC.</p></div>
-  <div class="gallery-toolbar"><button class="gallery-filter active" data-filter="all">All Photos</button><button class="gallery-filter" data-filter="season2">Season 2</button><button class="gallery-filter" data-filter="community">Community</button><button class="gallery-filter" data-filter="landmarks">Landmarks</button></div>
-  <div class="gallery">
-    <article class="card" data-title="Gaming District" data-category="community" data-credit="Lamplad" style="grid-column:auto;grid-row:auto;aspect-ratio:16/10"><img class="gallery-img" src="assets/gaming-district.webp" alt="JMC Gaming District"><div class="card-label">Gaming District</div></article>
-    <article class="card" data-title="The Court Room" data-category="community" data-credit="glxy14colourse"><img class="gallery-img" src="assets/court-room.webp" alt="The Court Room"><div class="card-label">The Court Room</div></article>
+  <div class="gallery-head"><div><div class="kicker">From the JMC Scrapbook</div><h2>Featured Moments</h2></div><p class="section-lead">A few snapshots from across JMC. The full gallery has every build, landmark, meeting, and community moment we've collected.</p></div>
+  <div class="gallery featured-gallery">    <article class="card" data-title="Gaming District" data-category="community" data-credit="Lamplad" style="grid-column:auto;grid-row:auto;aspect-ratio:16/10"><img class="gallery-img" src="assets/gaming-district.webp" alt="JMC Gaming District"><div class="card-label">Gaming District</div></article>
     <article class="card" data-title="Community Hat Hall" data-category="community" data-credit="glxy14colourse"><img class="gallery-img" src="assets/community-hat-hall.webp" alt="Community Hat Hall"><div class="card-label">Community Hat Hall</div></article>
-    <article class="card" data-title="Season 2 Glxy Base" data-category="season2" data-credit="glxy14colourse"><img class="gallery-img" src="assets/glxy-base.webp" alt="Season 2 Glxy Base"><div class="card-label">Season 2 Glxy Base</div></article>
-    <article class="card" data-title="Season 2 Rumgie Base" data-category="season2" data-credit="Rumgie"><img class="gallery-img" src="assets/rumgie-base.webp" alt="Season 2 Rumgie Base"><div class="card-label">Season 2 Rumgie Base</div></article>
-    <article class="card" data-title="Season 2 Jool's Base" data-category="season2" data-credit="missjoolicious"><img class="gallery-img" src="assets/jools-base.webp" alt="Season 2 Jool's Base"><div class="card-label">Season 2 Jool's Base</div></article>
-    <article class="card" data-title="Armor Stand of Albert" data-category="landmarks" data-credit="Chrisable"><img class="gallery-img" src="assets/albert.webp" alt="Armor Stand of Albert"><div class="card-label">Armor Stand of Albert</div></article>
-    <article class="card" data-title="Ice Spike Protector" data-category="landmarks" data-credit="Chrisable"><img class="gallery-img" src="assets/ice-spike-protector.webp" alt="Ice Spike Protector"><div class="card-label">Ice Spike Protector</div></article>
     <article class="card" data-title="Guardian of the Forest" data-category="landmarks" data-credit="Chrisable"><img class="gallery-img" src="assets/guardian-forest.webp" alt="Guardian of the Forest"><div class="card-label">Guardian of the Forest</div></article>
     <article class="card" data-title="Shopping Council Meeting" data-category="community" data-credit="glxy14colourse"><img class="gallery-img" src="assets/shopping-council-meeting.png" alt="Shopping Council Meeting"><div class="card-label">Shopping Council Meeting</div></article>
-    <article class="card" data-title="The Hobbits" data-category="community" data-credit="Lamplad"><img class="gallery-img" src="assets/the-hobbits.png" alt="The Hobbits"><div class="card-label">The Hobbits</div></article>
-    <article class="card" data-title="BEE WHO YOU ARE" data-category="landmarks" data-credit="spookip"><img class="gallery-img" src="assets/bee-who-you-are.png" alt="BEE WHO YOU ARE"><div class="card-label">BEE WHO YOU ARE</div></article>
     <article class="card" data-title="The End." data-category="landmarks" data-credit="glxy14colourse"><img class="gallery-img" src="assets/the-end.png" alt="The End"><div class="card-label">The End.</div></article>
-    <article class="card" data-title="The Guild Hall" data-category="community" data-credit="Mr_Whalter"><img class="gallery-img" src="assets/the-guild-hall.png" alt="The Guild Hall"><div class="card-label">The Guild Hall</div></article>
-  </div>
+    <article class="card" data-title="The Guild Hall" data-category="community" data-credit="Mr_Whalter"><img class="gallery-img" src="assets/the-guild-hall.png" alt="The Guild Hall"><div class="card-label">The Guild Hall</div></article></div>
+  <div style="text-align:center;margin-top:28px"><a class="btn btn-primary" href="/gallery/">View Full Gallery →</a></div>
 </div></section>
 <section class="section" id="info"><div class="container">
   <div class="kicker">JMC Server Information</div><h2>Everything You Need</h2><p class="section-lead">Server addresses, hardware, Minecraft details, gameplay changes, maps, and community links in one place.</p>
@@ -216,21 +224,20 @@ a { color: inherit; text-decoration: none; }
   </div>
   <div class="info-card" style="margin-top:16px"><h3>🗳️ Support JMC</h3><p class="section-lead">Vote for the server, upvote our community posts, or boost the Discord. Boosters can use the <strong>BOOSTER</strong> in-game tag and a themed pink name gradient; activate tags with <code>/name prefix</code>.</p><div class="info-links"><a href="https://minecraftservers.org/server/686941" target="_blank" rel="noopener">MinecraftServers.org ↗</a><a href="https://minecraft-server-list.com/server/519767/" target="_blank" rel="noopener">Minecraft Server List ↗</a><a href="https://www.planetminecraft.com/server/justminecraft-smp/" target="_blank" rel="noopener">Planet Minecraft ↗</a><a href="https://www.reddit.com/r/mcservers/comments/1uh3rkw/jmc_smp_262_semivanilla_whitelist_voicechat/" target="_blank" rel="noopener">r/mcservers ↗</a><a href="https://www.reddit.com/r/MCVanillaServers/comments/1uh3spo/jmc_smp_262_semivanilla_whitelist_voicechat/" target="_blank" rel="noopener">r/MCVanillaServers ↗</a><a href="https://www.reddit.com/r/MinecraftServer/comments/1uh3ss0/jmc_smp_262_semivanilla_whitelist_voicechat/" target="_blank" rel="noopener">r/MinecraftServer ↗</a><a href="https://www.reddit.com/r/MinecraftSMPs/comments/1uh3stv/jmc_smp_262_semivanilla_whitelist_voicechat/" target="_blank" rel="noopener">r/MinecraftSMPs ↗</a><a href="https://discord.gg/SxK7QYqeD7" target="_blank" rel="noopener">Boost / Join Discord ↗</a></div></div>
 </div></section>
-<section class="section" id="rules"><div class="container"><div class="rules">
-  <div><div class="kicker">The JMC Handbook</div><h2>Server Rules</h2><p class="section-lead">The rules below match the rules posted in the JMC Discord. Use common sense, respect other players, and don't look for technicalities to get around the spirit of the rules.</p>
-    <div class="rule-groups">
-      <article class="rule-group"><h3>🧠 Common Sense</h3><ul><li><strong>The Loophole Clause:</strong> We are not a court of law. If you are technically following the rules but constantly instigating, being passive-aggressive, ruining the fun for others, or spreading constant negativity, you may be removed.</li><li><strong>Respect:</strong> Light banter is allowed and encouraged, but hate speech, slurs, and excessive harassment are bannable offences.</li><li><strong>AI Usage:</strong> No AI Slop.</li></ul></article>
-      <article class="rule-group"><h3>⚔️ PvP &amp; Interaction</h3><ul><li><strong>Consent is Key:</strong> PvP is only allowed if both players explicitly consent beforehand.</li><li><strong>Grave Respect:</strong> If someone dies during consensual PvP or nearby, protect their items from despawning. Stealing drops is not allowed unless agreed upon.</li><li><strong>Pranks vs. Griefing:</strong> Pranks should be funny and reversible. Destroying builds, stealing items, or killing pets is bannable.</li></ul></article>
-      <article class="rule-group"><h3>🛠️ Cheating, Mods &amp; Exploits</h3><ul><li><strong>No Cheating:</strong> X-Ray, Fly, Kill Aura, and Baritone are strictly banned.</li><li><strong>Litematica:</strong> Schematics and Easy Place mode are allowed.</li><li><strong>Allowed Dupes:</strong> TNT; gravity blocks (sand, concrete powder, gravel); carpets, rails, and tripwire hooks. Item duping such as diamonds, netherite, or tools is a permanent ban.</li><li><strong>Mechanics:</strong> Bedrock-breaking and auto-clickers are allowed.</li></ul></article>
-      <article class="rule-group"><h3>📉 Server Performance &amp; Redstone</h3><ul><li><strong>Don't Lag the Server:</strong> Staff reserve the right to remove machines that ruin TPS.</li><li><strong>Chunk Loaders:</strong> Nether Portal chunk loaders require Staff approval. Ender Pearl chunk loaders are allowed.</li><li><strong>ALT Accounts:</strong> Reach out to Staff to get an ALT whitelisted.</li><li><strong>AFK:</strong> You or your ALT may be kicked while AFK during high demand or lag. Auto-reconnect mods should not rejoin after a kick.</li></ul></article>
-      <article class="rule-group"><h3>🌍 Environment &amp; Building</h3><ul><li><strong>Build Guidelines:</strong> Do not build bases or farms in ways that disrupt special places such as spawn, shopping, or event areas.</li><li><strong>Damage Control:</strong> Repair damage you cause to player or public areas in a timely manner.</li><li><strong>Claims:</strong> Land is claimed by usage. Be mindful of your neighbors.</li></ul></article>
-      <article class="rule-group"><h3>💎 Economy &amp; Progression</h3><ul><li><strong>Property Rights:</strong> Do not use farms or take loot without the owner's permission unless marked Public.</li><li><strong>Abandoned Assets:</strong> If a player is banned, their farms and/or builds may be auctioned off by Staff.</li><li><strong>Progression:</strong> Let new players experience the grind!</li></ul></article>
-    </div>
+<section class="section" id="rules"><div class="container">
+  <div class="gallery-head"><div><div class="kicker">The JMC Handbook</div><h2>Play Fair. Use Common Sense.</h2></div><p class="section-lead">The full handbook covers community behavior, PvP, mods, exploits, performance, building, and the economy.</p></div>
+  <div class="features">
+    <article class="feature"><div class="feature-icon">🧠</div><h3>Common Sense</h3><p>No loophole-lawyering, hate speech, excessive harassment, or AI slop.</p></article>
+    <article class="feature"><div class="feature-icon">⚔️</div><h3>PvP & Interaction</h3><p>Consent is key. Protect graves. Keep pranks reversible and don't grief.</p></article>
+    <article class="feature"><div class="feature-icon">🛠️</div><h3>Mods & Exploits</h3><p>No X-Ray, Fly, Kill Aura, Baritone, or prohibited item duplication.</p></article>
+    <article class="feature"><div class="feature-icon">📉</div><h3>Performance</h3><p>Don't ruin TPS. Follow chunk-loader, AFK, and ALT-account guidelines.</p></article>
+    <article class="feature"><div class="feature-icon">🌍</div><h3>Building</h3><p>Respect shared spaces, repair damage, and remember land is claimed by usage.</p></article>
+    <article class="feature"><div class="feature-icon">💎</div><h3>Economy</h3><p>Respect private farms and property, and let new players experience progression.</p></article>
   </div>
-  <aside class="rule-side"><h3>Rules at a Glance</h3><p>Consent matters. Don't grief. Don't cheat. Don't lag the server. Respect people's property and space. Most importantly, don't use technicalities to make the server less fun for everyone else.</p><a class="btn btn-primary" href="https://discord.gg/SxK7QYqeD7" target="_blank" rel="noopener">Join the JMC Discord</a></aside>
-</div></div></section>
+  <div style="text-align:center;margin-top:28px"><a class="btn btn-primary" href="/rules/">Read Full Rules →</a></div>
+</div></section>
 <section class="section" id="join"><div class="container">
-  <div class="kicker">How To Join JMC</div><h2>Ready To Play?</h2><p class="section-lead">Joining JMC is simple. Get into the Discord, answer the whitelist questions, and then start building.</p>
+  <div class="kicker">Join JustMineCraft</div><h2>Your Next Base Starts Here.</h2><p class="section-lead">Join the Discord, complete the whitelist questions, and become part of the world. No pay-to-win. No reset treadmill. Just Minecraft and the people you meet along the way.</p>
   <div class="steps" style="margin-top:38px">
     <article class="step"><div class="step-num">01</div><h3>Join Discord</h3><p>Meet the community, read the information, and get your questions answered.</p></article>
     <article class="step"><div class="step-num">02</div><h3>Apply</h3><p>Answer the JMC whitelist questions and tell us why you want to join.</p></article>
@@ -240,7 +247,11 @@ a { color: inherit; text-decoration: none; }
   <div class="ip"><code id="serverIp">play.justminecraft.org</code><button class="copy" id="copyBtn">Copy Server IP</button></div>
 </div></section>
 </main>
-<footer class="footer"><div class="container footer-inner"><div><strong>JustMineCraft (JMC)</strong><br><span>Build. Explore. Make it yours.</span></div><div>© 2026 JustMineCraft · Not affiliated with Mojang or Microsoft.</div></div></footer>
+<footer class="footer"><div class="container">
+  <div class="footer-inner"><div><img src="/assets/logo.png" alt="JMC" style="width:110px;height:auto"><br><span>Build. Explore. Make it yours.</span></div>
+  <div class="info-links"><a href="https://discord.gg/SxK7QYqeD7" target="_blank" rel="noopener">Discord ↗</a><a href="http://play.justminecraft.org:8100/" target="_blank" rel="noopener">BlueMap ↗</a><a href="/gallery/">Gallery</a><a href="/rules/">Rules</a><a href="/history/">History</a></div></div>
+  <div style="margin-top:28px;padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap"><span>play.justminecraft.org</span><span>© 2026 JustMineCraft · Made for the JMC community · Not affiliated with Mojang or Microsoft.</span></div>
+</div></footer>
 </div>
 <div class="modal" id="modal"><div class="modal-box"><button class="close" id="close">×</button><div class="modal-art" id="modalArt">WORLD</div><div style="padding:10px 8px 4px"><h3 id="modalTitle" style="margin:8px 0 0">Preview</h3><p id="modalCredit" style="margin:6px 0 4px;color:var(--muted);font-size:14px">Screenshot by JMC community</p></div></div></div>
 <script>
@@ -260,5 +271,7 @@ document.getElementById('close').addEventListener('click',()=>modal.classList.re
 modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('open')});
 document.querySelectorAll('.mini-copy').forEach(btn=>btn.addEventListener('click',async()=>{const old=btn.textContent;try{await navigator.clipboard.writeText(btn.dataset.copy);btn.textContent='✓ Copied!';btn.classList.remove('copied');void btn.offsetWidth;btn.classList.add('copied');setTimeout(()=>{btn.textContent=old;btn.classList.remove('copied')},1200)}catch(e){btn.textContent='Copy manually'}}));
 document.getElementById('copyBtn').addEventListener('click',async()=>{const btn=document.getElementById('copyBtn'); try{await navigator.clipboard.writeText(document.getElementById('serverIp').textContent);btn.textContent='✓ Copied!';const box=btn.closest('.ip');box.classList.remove('copied');void box.offsetWidth;box.classList.add('copied');setTimeout(()=>{btn.textContent='Copy Server IP';box.classList.remove('copied')},1200)}catch(e){btn.textContent='Select & Copy';}});
+
+(async()=>{try{const r=await fetch('https://api.mcstatus.io/v2/status/java/play.justminecraft.org?query=false');if(!r.ok)throw new Error();const d=await r.json(),dot=document.getElementById('statusDot'),st=document.getElementById('statusText'),pt=document.getElementById('playerText');if(d.online){dot.classList.add('online');st.textContent='Server Online';pt.textContent=(d.players?d.players.online+' / '+d.players.max+' players':'play.justminecraft.org')}else{dot.classList.add('offline');st.textContent='Server Offline';pt.textContent='play.justminecraft.org'}}catch(e){document.getElementById('statusText').textContent='Server Status';document.getElementById('playerText').textContent='play.justminecraft.org'}})();
 </script>
 </body></html>

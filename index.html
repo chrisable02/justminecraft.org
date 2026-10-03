@@ -100,7 +100,7 @@ a { color: inherit; text-decoration: none; }
 .server-row { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:12px 0; border-bottom:1px solid var(--line); }
 .server-row:last-child { border-bottom:0; }
 .server-row code { color:var(--green-2); font-weight:800; }
-.mini-copy { border:1px solid var(--line); background:rgba(255,255,255,.05); color:#fff; padding:7px 10px; border-radius:8px; cursor:pointer; font-weight:750; white-space:nowrap; }
+.mini-copy { border:1px solid var(--line); background:rgba(255,255,255,.05); color:#fff; padding:7px 10px; border-radius:8px; cursor:pointer; font-weight:750; white-space:nowrap; }\n.mini-copy.copied { color:#102006; background:var(--green); border-color:var(--green); animation:copiedPulse .55s ease-out; }
 .info-links { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
 .info-links a { padding:9px 12px; border:1px solid rgba(139,234,53,.3); border-radius:9px; color:var(--green-2); background:rgba(139,234,53,.06); font-size:13px; font-weight:800; }
 .change-list { margin:0; padding-left:20px; color:var(--muted); line-height:1.65; }
@@ -250,7 +250,6 @@ if(!reducedMotion){
   for(let i=0;i<16;i++){const p=document.createElement("i");p.className="pixel-particle";p.style.left=`${4+Math.random()*92}%`;p.style.setProperty("--size",`${3+Math.random()*5}px`);p.style.setProperty("--duration",`${7+Math.random()*8}s`);p.style.setProperty("--delay",`${-Math.random()*12}s`);p.style.setProperty("--drift",`${-45+Math.random()*90}px`);pf.appendChild(p)}
   const revealEls=document.querySelectorAll(".feature,.gallery-head,.gallery-toolbar,.card,.info-card,.rule-group,.rule-side,.step,.ip");revealEls.forEach(el=>el.classList.add("reveal"));const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in-view");ro.unobserve(e.target)}}),{threshold:.08,rootMargin:"0px 0px -35px"});revealEls.forEach(el=>ro.observe(el));
   document.querySelectorAll(".gallery .card").forEach(card=>{card.classList.add("motion-tilt");card.addEventListener("mousemove",e=>{const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.transform=`translateY(-5px) perspective(850px) rotateX(${-y*3}deg) rotateY(${x*4}deg)`});card.addEventListener("mouseleave",()=>card.style.transform="")});
-  window.addEventListener("scroll",()=>{const h=document.querySelector(".hero");if(h&&window.scrollY<h.offsetHeight)h.style.backgroundPosition=`center calc(50% + ${window.scrollY*.12}px)`},{passive:true});
 }
 const sectionLinks=[...document.querySelectorAll(".nav-links a[href^=\"#\"]")];const sections=sectionLinks.map(a=>document.querySelector(a.getAttribute("href"))).filter(Boolean);const navObs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){sectionLinks.forEach(a=>a.classList.toggle("active",a.getAttribute("href")===`#${e.target.id}`))}}),{rootMargin:"-30% 0px -60%"});sections.forEach(s=>navObs.observe(s));
 const modal=document.getElementById('modal'), modalTitle=document.getElementById('modalTitle'), modalCredit=document.getElementById('modalCredit'), modalArt=document.getElementById('modalArt');
@@ -258,7 +257,7 @@ document.querySelectorAll('.gallery-filter').forEach(btn=>btn.addEventListener('
 document.querySelectorAll('.card').forEach(card=>card.addEventListener('click',()=>{ modalTitle.textContent=card.dataset.title; modalCredit.textContent=`Screenshot by ${card.dataset.credit || 'JMC community'}`; const img=card.querySelector('.gallery-img'); modalArt.innerHTML=img ? `<img src="${img.src}" alt="${card.dataset.title}">` : card.dataset.title.toUpperCase(); modal.classList.add('open'); }));
 document.getElementById('close').addEventListener('click',()=>modal.classList.remove('open'));
 modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('open')});
-document.querySelectorAll('.mini-copy').forEach(btn=>btn.addEventListener('click',async()=>{const old=btn.textContent;try{await navigator.clipboard.writeText(btn.dataset.copy);btn.textContent='Copied!';setTimeout(()=>btn.textContent=old,1000)}catch(e){btn.textContent='Copy manually'}}));
+document.querySelectorAll('.mini-copy').forEach(btn=>btn.addEventListener('click',async()=>{const old=btn.textContent;try{await navigator.clipboard.writeText(btn.dataset.copy);btn.textContent='✓ Copied!';btn.classList.remove('copied');void btn.offsetWidth;btn.classList.add('copied');setTimeout(()=>{btn.textContent=old;btn.classList.remove('copied')},1200)}catch(e){btn.textContent='Copy manually'}}));
 document.getElementById('copyBtn').addEventListener('click',async()=>{const btn=document.getElementById('copyBtn'); try{await navigator.clipboard.writeText(document.getElementById('serverIp').textContent);btn.textContent='✓ Copied!';const box=btn.closest('.ip');box.classList.remove('copied');void box.offsetWidth;box.classList.add('copied');setTimeout(()=>{btn.textContent='Copy Server IP';box.classList.remove('copied')},1200)}catch(e){btn.textContent='Select & Copy';}});
 </script>
 </body></html>

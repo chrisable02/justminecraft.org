@@ -186,6 +186,15 @@ header.nav .nav-cta{padding:10px 15px!important;border:1px solid rgba(139,234,53
 .player-role-tip{min-width:max-content!important;width:max-content!important;max-width:260px!important;text-align:center!important;padding:8px 10px!important}
 .player-role-tip strong{text-align:center!important}
 .player-role-tip>div{justify-content:center!important}
+</style><style id="mobile-player-tooltip-fix">
+@media(max-width:560px){
+  .online-players-section{overflow:hidden}
+  .player-head-grid{padding-top:4px}
+  .player-role-tip{position:fixed!important;left:14px!important;right:14px!important;bottom:18px!important;top:auto!important;width:auto!important;max-width:none!important;transform:translateY(10px)!important;z-index:1000!important;padding:12px 14px!important}
+  .player-chip:hover .player-role-tip,.player-chip:focus-within .player-role-tip{transform:translateY(0)!important}
+  .player-role-tip>div{max-height:112px;overflow-y:auto;justify-content:center!important}
+  .role-badge{font-size:10px!important;padding:4px 6px!important}
+}
 </style></head>
 <body>
 <div class="root">

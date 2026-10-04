@@ -1,0 +1,9 @@
+/* Canonical JMC footer — shared by every page */
+.footer{padding:42px 0!important;border-top:1px solid rgba(255,255,255,.1)!important;color:#9daaa1!important;background:#07100d!important}
+.footer>.container{width:min(1160px,calc(100% - 40px))!important;max-width:1160px!important;margin:0 auto!important;padding:0!important}
+.footer-inner{display:flex!important;justify-content:space-between!important;gap:28px!important;align-items:flex-end!important}
+.footer-inner>div:first-child img{width:110px!important;height:auto!important;display:inline-block!important}
+.footer .info-links{display:flex!important;gap:18px!important;flex-wrap:wrap!important;align-items:center!important}
+.footer .info-links a{display:inline!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:none!important;box-shadow:none!important;color:#9daaa1!important;text-decoration:none!important;font-weight:400!important}
+.footer .info-links a:hover{color:#f4f7f2!important;background:none!important}
+@media(max-width:620px){.footer>.container{width:calc(100% - 26px)!important}.footer-inner{flex-direction:column!important;align-items:flex-start!important}}

@@ -21,13 +21,21 @@ footer .container{width:min(var(--jmc-content),calc(100% - var(--jmc-gutter)))!i
 </style><style id="history-alignment-hard-fix">
 main .hero>.c,main .section>.c{width:min(1160px,calc(100% - 40px))!important;max-width:1160px!important;margin-left:auto!important;margin-right:auto!important}
 @media(max-width:620px){main .hero>.c,main .section>.c{width:calc(100% - 26px)!important}}
-</style><style id="site-page-spacing-standard">
-main>.hero{padding-top:88px!important;padding-bottom:32px!important}
-main>.hero h1{margin-top:14px!important;margin-bottom:18px!important}
-main>.hero .lead{margin-top:0!important;margin-bottom:26px!important}
-main>.section{padding-top:32px!important;padding-bottom:70px!important}
-@media(max-width:620px){main>.hero{padding-top:58px!important;padding-bottom:26px!important}main>.section{padding-top:26px!important;padding-bottom:52px!important}}
-</style></head><body><header class="nav"><div class="container nav-inner"><a class="brand" href="/"><span class="brand-mark"><img src="/assets/logo.png" alt="JMC"></span><span>JustMineCraft</span></a><nav class="nav-links"><a href="/#about">About</a><a href="/gallery/">Gallery</a><a href="/#info">Server Info</a><a href="/rules/">Rules</a><a href="/history/">History</a><a href="/world/">World Guide</a><a href="/community/">Community</a><a href="/#join">Join</a></nav><button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation" aria-expanded="false">☰</button><a class="nav-cta" href="https://discord.gg/SxK7QYqeD7" target="_blank" rel="noopener">Join JMC</a></div></header><div class="mobile-drawer" id="mobileDrawer"><a href="/#about">About</a><a href="/gallery/">Gallery</a><a href="/#info">Server Info</a><a href="/rules/">Rules</a><a href="/history/">History</a><a href="/world/">World Guide</a><a href="/community/">Community</a><a href="/#join">Join</a></div><main><section class="hero"><div class="c"><div class="k">JMC Archive</div><h1>Our History.</h1><p class="lead">Six seasons of builds, communities, experiments, and memories. The archive will keep growing as more screenshots and stories are recovered.</p></div></section><section class="section"><div class="c">
+</style><style id="inner-page-shell-v1">
+/* One canonical inner-page shell, based on World Gallery */
+main>.hero{padding:88px 0 32px!important;background:#07100d!important;background-image:none!important;border:0!important}
+main>.hero>.container,main>.hero>.c{width:min(1160px,calc(100% - 40px))!important;max-width:1160px!important;margin:0 auto!important;padding:0!important}
+main>.hero .kicker,main>.hero .k{display:block!important;margin:0 0 14px!important;padding:0!important;color:#8bea35!important;font-size:12px!important;font-weight:900!important;line-height:1.2!important;letter-spacing:.15em!important;text-transform:uppercase!important}
+main>.hero h1{margin:0 0 20px!important;padding:0!important;font-size:clamp(48px,7vw,82px)!important;line-height:.95!important;letter-spacing:-.065em!important}
+main>.hero .lead{margin:0!important;padding:0!important;max-width:760px!important;line-height:1.7!important}
+main>.section{padding:32px 0 70px!important}
+main>.section>.container,main>.section>.c{width:min(1160px,calc(100% - 40px))!important;max-width:1160px!important;margin:0 auto!important;padding-left:0!important;padding-right:0!important}
+@media(max-width:620px){
+ main>.hero{padding:58px 0 26px!important}
+ main>.hero>.container,main>.hero>.c,main>.section>.container,main>.section>.c{width:calc(100% - 26px)!important}
+ main>.section{padding:26px 0 52px!important}
+}
+</style></head><body><header class="nav"><div class="container nav-inner"><a class="brand" href="/"><span class="brand-mark"><img src="/assets/logo.png" alt="JMC"></span><span>JustMineCraft</span></a><nav class="nav-links"><a href="/#about">About</a><a href="/gallery/">Gallery</a><a href="/#info">Server Info</a><a href="/rules/">Rules</a><a href="/history/">History</a><a href="/world/">World Guide</a><a href="/community/">Community</a><a href="/#join">Join</a></nav><button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation" aria-expanded="false">☰</button><a class="nav-cta" href="https://discord.gg/SxK7QYqeD7" target="_blank" rel="noopener">Join JMC</a></div></header><div class="mobile-drawer" id="mobileDrawer"><a href="/#about">About</a><a href="/gallery/">Gallery</a><a href="/#info">Server Info</a><a href="/rules/">Rules</a><a href="/history/">History</a><a href="/world/">World Guide</a><a href="/community/">Community</a><a href="/#join">Join</a></div><main><section class="hero"><div class="container"><div class="kicker">JMC Archive</div><h1>Our History.</h1><p class="lead">Six seasons of builds, communities, experiments, and memories. The archive will keep growing as more screenshots and stories are recovered.</p></div></section><section class="section"><div class="container">
 <article class="card"><h2>Season 1</h2><p class="lead">The earliest season currently represented in the JMC gallery, including Scott's Base, the Shopping District, Pie Shop, Zero, Sky Islands, and Aurora.</p><p><a style="color:var(--green2)" href="/gallery/">Browse Season 1 →</a></p></article>
 <article class="card"><h2>Season 2</h2><p class="lead">One of the largest preserved photo sets: player bases, Spawn, WAR Camp, the Cerulean Isles, the Vortex Colonies, landmarks, and more.</p><p><a style="color:var(--green2)" href="/gallery/">Browse Season 2 →</a></p></article>
 <article class="card"><h2>Season 3</h2><p class="lead">Preserved builds include Chrisable's Island, player bases, the Under Pants Shop, Christmas' Savior, Farm Pit, Spawn, and the RainDrop Minigame.</p><p><a style="color:var(--green2)" href="/gallery/">Browse Season 3 →</a></p></article>

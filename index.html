@@ -199,6 +199,13 @@ header.nav .nav-links a:hover::after,header.nav .nav-links a:focus-visible::afte
 header.nav .nav-cta{padding:10px 15px!important;border:1px solid rgba(139,234,53,.35)!important;border-radius:10px!important;color:#c4ff70!important;background:rgba(139,234,53,.08)!important;font-weight:800!important;text-decoration:none!important}
 @media(max-width:1100px){header.nav .nav-links{gap:14px!important;font-size:12px!important}}
 @media(max-width:900px){header.nav .nav-links{display:none!important}header.nav .nav-cta{display:none!important}header.nav .container.nav-inner{width:calc(100% - 26px)!important}}
+</style><style id="site-container-standard">
+:root{--jmc-content:1160px;--jmc-gutter:40px}
+header.nav .container.nav-inner,
+main .container,
+main .c,
+footer .container{width:min(var(--jmc-content),calc(100% - var(--jmc-gutter)))!important;max-width:var(--jmc-content)!important;margin-left:auto!important;margin-right:auto!important}
+@media(max-width:620px){:root{--jmc-gutter:26px}}
 </style></head>
 <body>
 <div class="root">

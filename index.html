@@ -269,6 +269,14 @@ header.nav .nav-cta{grid-column:3!important;grid-row:1!important;justify-self:en
 header.nav .jmc-auth.auth-ready:not(.logged-in)+.nav-cta{margin-left:0!important}
 header.nav .jmc-auth.logged-in + .nav-cta:not([style*="display: none"]){margin-right:160px!important}
 }
+</style><style id="jmc-header-action-layout">
+@media(min-width:901px){
+header.nav .container.nav-inner{grid-template-columns:220px minmax(0,1fr) 310px!important}
+header.nav .jmc-auth{grid-column:3!important;grid-row:1!important;justify-self:end!important;width:auto!important;min-width:0!important;margin:0!important}
+header.nav .nav-cta{grid-column:3!important;grid-row:1!important;justify-self:end!important;margin:0!important}
+header.nav .jmc-auth:not(.logged-in)+.nav-cta:not([style*="display: none"]){margin-right:175px!important}
+header.nav .jmc-auth.logged-in+.nav-cta:not([style*="display: none"]){margin-right:165px!important}
+}
 </style></head>
 <body>
 <div class="root">

@@ -1,0 +1,10 @@
+/* JMC cross-document page transitions; header stays visually stable. */
+@view-transition { navigation: auto; }
+::view-transition-old(root){animation:180ms ease-in both jmc-page-out}
+::view-transition-new(root){animation:250ms ease-out both jmc-page-in}
+@keyframes jmc-page-out{from{opacity:1}to{opacity:0}}
+@keyframes jmc-page-in{from{opacity:0}to{opacity:1}}
+/* Avoid animating the persistent navigation region. */
+header.nav{view-transition-name:jmc-header}
+::view-transition-old(jmc-header),::view-transition-new(jmc-header){animation:none}
+@media(prefers-reduced-motion:reduce){::view-transition-old(root),::view-transition-new(root),::view-transition-old(jmc-header),::view-transition-new(jmc-header){animation:none!important}}

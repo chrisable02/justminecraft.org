@@ -1,0 +1,29 @@
+/* Shared responsive and accessibility refinements. Keep existing visual language. */
+html { scroll-padding-top: 86px; }
+body { overflow-x: clip; }
+img { max-width: 100%; }
+.nav-inner, .nav-links, .jmc-auth { min-width: 0; }
+.nav-links a, .mobile-drawer a { -webkit-tap-highlight-color: transparent; }
+:where(a, button, [tabindex]):focus-visible { outline: 2px solid #8bea35; outline-offset: 3px; }
+.gallery .card img, .photo img { content-visibility: auto; }
+.photo img, .gallery-img { background: #102017; }
+.community-person img, .player-head { flex-shrink: 0; }
+@media (max-width: 900px) {
+  .container { width: min(100% - 32px, 1160px); }
+  .nav-inner { gap: 10px; }
+  .mobile-drawer { max-height: calc(100dvh - 70px); overflow-y: auto; overscroll-behavior: contain; }
+  .jmc-auth { max-width: 42vw; }
+  .jmc-user-btn { max-width: 100%; }
+  .jmc-user-btn span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .community-people, .community-figures { min-width: 0; }
+}
+@media (max-width: 560px) {
+  .container { width: calc(100% - 28px); }
+  .gallery, .community-figures, .community-people { min-width: 0; }
+  .community-person { min-width: 0; overflow-wrap: anywhere; }
+  .modal .box { max-width: calc(100vw - 24px); max-height: 90dvh; overflow-y: auto; }
+  .modal img { max-height: 68dvh; object-fit: contain; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+}

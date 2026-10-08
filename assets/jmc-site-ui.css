@@ -85,3 +85,8 @@ header.nav .jmc-account-menu{right:0!important;top:calc(100% + 8px)!important}
 
 /* Shared desktop grid: override legacy page-specific header rules */
 @media(min-width:901px){html body header.nav .container.nav-inner{display:grid!important;grid-template-columns:220px minmax(0,1fr) 310px!important;gap:20px!important;width:min(1160px,calc(100% - 40px))!important;height:72px!important;align-items:center!important;margin:0 auto!important;padding:0!important}html body header.nav .nav-links{display:flex!important;align-items:center!important;justify-self:center!important;gap:20px!important}html body header.nav .jmc-auth{grid-column:3!important;grid-row:1!important;justify-self:end!important;width:auto!important;min-width:0!important;margin:0!important}html body header.nav .nav-cta{grid-column:3!important;grid-row:1!important;justify-self:end!important;white-space:nowrap!important;min-height:42px!important;padding:10px 15px!important;display:inline-flex!important;align-items:center!important}html body header.nav .jmc-auth.logged-in+.nav-cta:not([style*="display: none"]){margin-right:165px!important}}
+
+/* Membership-aware Join CTA: override legacy !important display rules. */
+header.nav #jmcJoinCta.jmc-join-hidden{display:none!important}
+header.nav #jmcJoinCta:not(.jmc-join-ready){visibility:hidden!important;pointer-events:none!important}
+header.nav #jmcJoinCta.jmc-join-ready:not(.jmc-join-hidden){visibility:visible!important}

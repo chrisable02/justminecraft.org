@@ -277,6 +277,21 @@ header.nav .nav-cta{grid-column:3!important;grid-row:1!important;justify-self:en
 header.nav .jmc-auth:not(.logged-in)+.nav-cta:not([style*="display: none"]){margin-right:175px!important}
 header.nav .jmc-auth.logged-in+.nav-cta:not([style*="display: none"]){margin-right:165px!important}
 }
+</style><style id="jmc-mobile-auth-layout-v2">
+@media(max-width:900px){
+header.nav .container.nav-inner{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:8px!important;position:relative!important;min-width:0!important}
+header.nav .brand{flex:0 1 auto!important;min-width:0!important;max-width:calc(100% - 112px)!important;margin:0!important}
+header.nav .brand>span:last-child{overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important}
+header.nav .nav-links{display:none!important}
+header.nav .mobile-menu-btn{display:flex!important;align-items:center!important;justify-content:center!important;position:static!important;order:3!important;flex:0 0 38px!important;width:38px!important;height:38px!important;margin:0!important}
+header.nav .jmc-auth{display:flex!important;position:relative!important;order:2!important;flex:0 0 auto!important;width:auto!important;min-width:0!important;max-width:150px!important;margin:0 0 0 auto!important;justify-content:flex-end!important;grid-column:auto!important;grid-row:auto!important}
+header.nav .jmc-login{position:static!important;right:auto!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;width:auto!important;max-width:145px!important;margin:0!important;padding:8px 9px!important;font-size:10px!important;line-height:1.2!important;white-space:nowrap!important}
+header.nav .jmc-auth.logged-in .jmc-login{display:none!important}
+header.nav .jmc-auth:not(.logged-in) .jmc-user-btn{display:none!important}
+header.nav .jmc-auth.logged-in .jmc-user-btn{display:flex!important;max-width:135px!important}
+header.nav .nav-cta{display:none!important}
+header.nav .jmc-account-menu{right:0!important;top:calc(100% + 8px)!important}
+}
 </style></head>
 <body>
 <div class="root">

@@ -30,3 +30,7 @@ img { max-width: 100%; }
 
 /* Keep staff-only navigation hidden until Discord roles are verified. */
 .mobile-drawer .staff-nav-link[hidden], .nav-links .staff-nav-link[hidden] { display: none !important; }
+
+/* Reserve identical viewport width on short and long pages so the shared header never nudges when navigating to News. */
+html { scrollbar-gutter: stable; }
+@supports not (scrollbar-gutter: stable) { html { overflow-y: scroll; } }

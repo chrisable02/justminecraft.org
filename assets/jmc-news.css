@@ -38,3 +38,28 @@ header.nav .nav-links a[href="/news/"]::after{right:0!important}
   accent-color: #8bea35;
   cursor: pointer;
 }
+
+/* Staff pin option: override the broad .news-editor input styling. */
+.news-editor label:has(> input[type="checkbox"]) {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+  width: fit-content;
+  font-size: 12px;
+}
+.news-editor input[type="checkbox"] {
+  display: inline-block !important;
+  appearance: auto !important;
+  width: 17px !important;
+  height: 17px !important;
+  min-width: 17px !important;
+  max-width: 17px !important;
+  flex: 0 0 17px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 3px !important;
+  accent-color: #8bea35 !important;
+  vertical-align: middle;
+}

@@ -27,3 +27,6 @@ img { max-width: 100%; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto !important; }
 }
+
+/* Keep staff-only navigation hidden until Discord roles are verified. */
+.mobile-drawer .staff-nav-link[hidden], .nav-links .staff-nav-link[hidden] { display: none !important; }

@@ -14,8 +14,13 @@ async function newsUpgrade(request,env,url){
   const verify=async()=>{
     const session=await getSessionUser(request,env);
     if(!session)return {error:'Login required',status:401};
-    const member=await getGuildMember(session.id,env);
-    if(!member)return {error:'Not in JMC',status:403};
+    const membershipResponse=await fetch(DISCORD_API+'/guilds/'+env.DISCORD_GUILD_ID+'/members/'+encodeURIComponent(session.id),{headers:{Authorization:'Bot '+env.DISCORD_BOT_TOKEN}});
+    if(membershipResponse.status===404)return {error:'Discord account is not in JMC',status:403};
+    if(!membershipResponse.ok){
+      console.error('News membership lookup failed',membershipResponse.status);
+      return {error:'Discord membership verification temporarily unavailable',status:503};
+    }
+    const member=await membershipResponse.json();
     const roles=await fetch(DISCORD_API+'/guilds/'+env.DISCORD_GUILD_ID+'/roles',{headers:{Authorization:'Bot '+env.DISCORD_BOT_TOKEN}});
     if(!roles.ok)return {error:'Role verification unavailable',status:503};
     const all=await roles.json();

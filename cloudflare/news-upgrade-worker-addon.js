@@ -14,18 +14,55 @@ async function newsUpgrade(request,env,url){
   const verify=async()=>{
     const session=await getSessionUser(request,env);
     if(!session)return {error:'Login required',status:401};
-    const membershipResponse=await fetch(DISCORD_API+'/guilds/'+env.DISCORD_GUILD_ID+'/members/'+encodeURIComponent(session.id),{headers:{Authorization:'Bot '+env.DISCORD_BOT_TOKEN}});
+    if(!env.JMC_SESSIONS)return {error:'Session cache binding unavailable',status:503};
+    const cacheKey='news:staff:'+env.DISCORD_GUILD_ID+':'+session.id;
+    const cooldownKey='news:discord:cooldown:'+env.DISCORD_GUILD_ID;
+    // Only cache a successful, server-verified staff result for 60 seconds.
+    try{
+      const cached=await env.JMC_SESSIONS.get(cacheKey,'json');
+      if(cached&&cached.expires>Date.now()&&cached.id===session.id&&cached.member){
+        return {session,member:cached.member};
+      }
+    }catch(e){console.error('News cache read failed',e)}
+    try{
+      const cooldown=Number(await env.JMC_SESSIONS.get(cooldownKey)||0);
+      if(cooldown>Date.now())return {error:'Discord rate limit active; please retry shortly',status:503};
+    }catch(e){console.error('News cooldown read failed',e)}
+    const check=async(endpoint)=>{
+      const response=await fetch(endpoint,{headers:{Authorization:'Bot '+env.DISCORD_BOT_TOKEN}});
+      if(response.status===429){
+        let wait=60;
+        const retryHeader=Number(response.headers.get('Retry-After'));
+        if(Number.isFinite(retryHeader)&&retryHeader>0)wait=retryHeader;
+        else try{
+          const body=await response.json();
+          if(Number.isFinite(Number(body.retry_after)))wait=Number(body.retry_after);
+        }catch{}
+        wait=Math.max(1,Math.min(Math.ceil(wait),3600));
+        try{await env.JMC_SESSIONS.put(cooldownKey,String(Date.now()+wait*1000),{expirationTtl:Math.max(60,wait)})}
+        catch(e){console.error('News cooldown write failed',e)}
+        console.warn('News Discord rate limited; retry after seconds:',wait);
+      }
+      return response;
+    };
+    const membershipResponse=await check(DISCORD_API+'/guilds/'+env.DISCORD_GUILD_ID+'/members/'+encodeURIComponent(session.id));
     if(membershipResponse.status===404)return {error:'Discord account is not in JMC',status:403};
     if(!membershipResponse.ok){
       console.error('News membership lookup failed',membershipResponse.status);
       return {error:'Discord membership verification temporarily unavailable',status:503};
     }
     const member=await membershipResponse.json();
-    const roles=await fetch(DISCORD_API+'/guilds/'+env.DISCORD_GUILD_ID+'/roles',{headers:{Authorization:'Bot '+env.DISCORD_BOT_TOKEN}});
-    if(!roles.ok)return {error:'Role verification unavailable',status:503};
+    const roles=await check(DISCORD_API+'/guilds/'+env.DISCORD_GUILD_ID+'/roles');
+    if(!roles.ok){
+      console.error('News role lookup failed',roles.status);
+      return {error:'Role verification unavailable',status:503};
+    }
     const all=await roles.json();
-    if(!all.some(r=>member.roles.includes(r.id)&&JMC_NEWS_ROLES.has(r.name)))return {error:'Staff only',status:403};
-    return {session,member};
+    if(!all.some(role=>member.roles.includes(role.id)&&JMC_NEWS_ROLES.has(role.name)))return {error:'Staff only',status:403};
+    const safeMember={nick:member.nick||null};
+    try{await env.JMC_SESSIONS.put(cacheKey,JSON.stringify({id:session.id,member:safeMember,expires:Date.now()+60000}),{expirationTtl:60})}
+    catch(e){console.error('News cache write failed',e)}
+    return {session,member:safeMember};
   };
   const input=async()=>{
     if(!(request.headers.get('Content-Type')||'').startsWith('application/json'))return null;

@@ -63,3 +63,26 @@ body.news-page header.nav .nav-links a[href="/news/"]::after{right:0!important}
   accent-color: #8bea35 !important;
   vertical-align: middle;
 }
+
+/* News editor v2 */
+.news-toolbar-editor{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.news-toolbar-editor button{background:#14251c!important;color:#c4ff70!important;border:1px solid #35523b!important;padding:7px 10px!important;font-size:12px!important}
+.news-editor-actions{display:flex;flex-wrap:wrap;gap:10px}
+.news-editor-actions button{flex:1 1 145px}
+.news-editor-actions .news-secondary,.news-manage-row .news-secondary{background:transparent!important;color:#c4ff70!important;border:1px solid #436344!important}
+.news-editor .news-checkline{display:flex!important;align-items:center!important;justify-content:flex-start!important;flex-direction:row!important;gap:10px!important}
+.news-editor .news-checkline input[type="checkbox"]{appearance:auto!important;width:17px!important;height:17px!important;min-width:17px!important;max-width:17px!important;padding:0!important;margin:0!important;flex:0 0 17px!important;accent-color:#8bea35!important}
+.news-editor-cover{max-width:100%;max-height:250px;object-fit:cover;border-radius:10px}
+.news-editor-cover[hidden]{display:none!important}
+.news-preview{border:1px dashed #35523b;border-radius:12px;padding:10px;min-height:65px}
+.news-preview .news-card{padding:15px}
+.news-body{color:#c3cdc5;overflow-wrap:anywhere;line-height:1.65}
+.news-body p{margin:8px 0;white-space:pre-wrap}
+.news-body ul{margin:8px 0;padding-left:22px}
+.news-body a{color:#8bea35;text-decoration:underline}
+.news-body h3,.news-body h4,.news-body h5{margin:14px 0 6px;color:#f4f7f2}
+.news-cover{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;margin-bottom:16px}
+.news-manage-row{display:flex;align-items:center;gap:9px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.1);padding:12px 0}
+.news-manage-row span{flex:1 1 170px;min-width:0;overflow-wrap:anywhere}
+.news-manage-row button{border:1px solid #426044;background:transparent;color:#c4ff70;padding:7px 11px;border-radius:8px;cursor:pointer}
+.news-manage-row .danger{color:#ff9a9a;border-color:#ff9a9a}
